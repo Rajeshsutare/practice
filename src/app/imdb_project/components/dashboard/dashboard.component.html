@@ -1,0 +1,57 @@
+
+<section class="hero-movie">
+    <header>
+        <div class="row m-0">
+            <div class="col-6 my-3">
+                <div class="logo">
+                    <img src="https://movie-gallerytask.vercel.app/assets/images/logo-removebg-preview.png" alt="logo">
+                </div>
+            </div>
+            <div class="col-6 my-3">
+                <div class="searchMovie">
+                    <input type="text" placeholder="Search Movie" class="form-control mr-2" [(ngModel)]="searchMovie">
+                    <button class="btn btn-warning" type="button">Search</button>
+                </div>
+            </div>
+        </div>
+</header>
+
+<section class="dash-movies">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3 col-sm-12" *ngFor="let movie of moviesArray | searchMovie:searchMovie">
+           <div class="card mb-4 ">
+              <figure>
+                <img src="https://image.tmdb.org/t/p/w1280/{{movie.poster_path}}" alt="{{movie.title}}" title="{{movie.title}}">
+                <figcaption>
+                 <div class="movie-title">
+                    <h5>
+                        {{movie.original_title}}
+                    </h5>
+                    <i class="fa-regular fa-star p-2"
+                    [ngClass]="{
+                      'bg-success' : movie.vote_average >= 7.5,
+                      'bg-warning' : movie.vote_average >= 6.5 && movie.vote_average  <= 7.4,
+                      'bg-danger' : movie.vote_average >= 0 &&  movie.vote_average <= 6.4
+                    }"
+                    >{{movie.vote_average}}
+                </i> 
+                 </div>
+                 
+                </figcaption>
+                 <div class="overview">
+                <p>
+                    {{movie.overview }}
+                </p>
+            </div>
+              </figure>
+             
+           </div>
+       </div>
+</div>
+</div>
+</section>
+
+
+
+</section>
