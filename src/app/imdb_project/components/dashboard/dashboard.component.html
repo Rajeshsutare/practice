@@ -30,9 +30,9 @@
                     </h5>
                     <i class="fa-regular fa-star p-2"
                     [ngClass]="{
-                      'bg-success' : movie.vote_average >= 7.5,
-                      'bg-warning' : movie.vote_average >= 6.5 && movie.vote_average  <= 7.4,
-                      'bg-danger' : movie.vote_average >= 0 &&  movie.vote_average <= 6.4
+                      'bg-success' : movie.vote_average >= 7,
+                      'bg-warning' : movie.vote_average >= 5.5 && movie.vote_average  <= 6.9,
+                      'bg-danger' : movie.vote_average >= 0 &&  movie.vote_average <= 5.4
                     }"
                     >{{movie.vote_average}}
                 </i> 
