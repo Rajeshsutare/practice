@@ -1,0 +1,10 @@
+<p>dependent-dropdown works!</p>
+<form>
+    <label for="country">Country:</label>
+    <select id="country" name="country" [(ngModel)]="selectedCountry" (change)="countrySelected()">
+      <!-- Options will be populated dynamically -->
+    </select>
+    <br>
+    <label for="phone">Phone Number:</label>
+    <input id="phone" name="phone" [(ngModel)]="phoneNumber">
+  </form>

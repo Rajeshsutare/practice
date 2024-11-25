@@ -1,0 +1,34 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <table class="table table-bordered text-center">
+                <thead class="bg-primary text-white">
+                    <tr>
+                        <th>Sr No.</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Contact</th>
+                        <th>action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of userArray; index as i" [id]="user.id">
+                        <td>{{i+1}}</td>
+                        <td>{{user.name}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.contact}}</td>
+                        <td class="d-flex justify-content-between">
+                            <button class="btn btn-warning" type="button"
+                            [routerLink]="[user.id,'editUser']"
+                            >Edit</button>
+                            <button class="btn btn-danger" type="button"
+                            (click)="deleteUser(user.id)"
+                            >Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

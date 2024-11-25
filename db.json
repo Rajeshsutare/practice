@@ -1,0 +1,30 @@
+{
+  "users": [
+    {
+      "id": "dac8",
+      "name": "Rxjs",
+      "email": "Rns@gmail.com",
+      "contact": 8623882700
+    },
+    {
+      "id": "c7e7",
+      "name": "rjRn",
+      "email": "RjRNS@gmail.com",
+      "contact": 8623882700
+    }
+  ],
+  "newUsers": [
+    {
+      "id": "2673",
+      "name": "qq",
+      "email": "qq@gmail.com",
+      "contact": 77777777777
+    },
+    {
+      "id": "5165",
+      "name": "rj",
+      "email": "rj@gmail.com",
+      "contact": 8623882700
+    }
+  ]
+}

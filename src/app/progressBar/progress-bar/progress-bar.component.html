@@ -1,0 +1,15 @@
+
+<div class="progress" style="position: relative; height: 30px;cursor: pointer;">
+    <div class="progress-bar bg-success" role="progressbar" 
+         [style.width.%]="lowRisk" 
+         [attr.title]="'Low Risk: ' + lowRisk + '%'"
+         (click)="onLowRisk()">
+      Low Risk
+    </div>
+    <div class="progress-bar bg-danger" role="progressbar" 
+         [style.width.%]="highRisk" 
+         [attr.title]="'High Risk: ' + highRisk + '%'"
+         (click)="onHighRisk()">
+      High Risk
+    </div>
+  </div>

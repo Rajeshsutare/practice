@@ -1,5 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Imovies } from '../model/interfaces';
+import { Observable } from 'rxjs';
 
 @Pipe({
   name: 'searchMovie'

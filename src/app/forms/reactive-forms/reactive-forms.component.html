@@ -1,0 +1,199 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form action="" [formGroup]="reactForm" (ngSubmit)="onSubmitReactForm()">
+                <div class="form-group">
+                    <label for="fname">First Name</label>
+                    <input type="text" name="fname" id="fname" class="form-control" formControlName="fname">
+                    <ng-container *ngIf="f['fname'].touched && f['fname'].invalid" >
+                        <small class="text-danger" *ngIf="f['fname'].hasError('required')" >
+                            *This is Required Field...
+                        </small>
+                    </ng-container>
+                <ng-container *ngIf="f['fname'].dirty && f['fname'].invalid ">
+                        <small class="text-danger" *ngIf="f['fname'].hasError('pattern')">
+                            *Only Text Allowed...
+                        </small>
+                
+                        <small class="text-danger" *ngIf="f['fname'].hasError('noSpaceMsg')">
+                           {{f['fname'].errors?.['noSpaceMsg']}}
+                        </small>
+                 
+                        <small class="text-danger" *ngIf="f['fname'].hasError('minlength')">
+                            *At least 3 alphabets...
+                        </small>
+               
+                        <small class="text-danger" *ngIf="f['fname'].hasError('maxlength')">
+                            *Maximum 16 alphabets allowed...
+                        </small>
+                    </ng-container>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" class="form-control" formControlName="email">
+                    <ng-container *ngIf="f['email'].touched && f['email'].invalid">
+                        <small class="text-danger" *ngIf="f['email'].hasError('required')">
+                            *This is Required Field...
+                        </small>
+                    </ng-container>
+                    <ng-container *ngIf="f['email'].dirty && f['email'].invalid">
+                        <small  class="text-danger" *ngIf="f['email'].hasError('email')">
+                            *There should be at least 1 UpperCase 1 Lowercae 1 number And 1 Special letter Included 
+                        </small>
+                    </ng-container>
+                </div>
+                <div class="form-group">
+                    <label for="contact">Contact</label>
+                    <input type="number" name="contact" id="contact" class="form-control" formControlName="contact">
+                    <ng-container *ngIf="f['contact'].touched && f['contact'].invalid">
+                        <small class="text-danger" *ngIf="f['contact'].hasError('required')">
+                            *This is Required Field...
+                        </small>
+                    </ng-container>
+                    <ng-container *ngIf=" f['contact'].dirty && f['contact'].invalid">
+                        <small class="text-danger" *ngIf="f['contact'].hasError('pattern')">
+                            *Enter Valid 10 digit Contact Number
+                        </small>
+                    </ng-container>
+
+                </div>
+                <div class="form-group">
+                    <label for="empId">Employee ID</label>
+                    <input type="text" name="empId" id="empId" class="form-control" formControlName="empId">
+                    <ng-container *ngIf="f['empId'].touched && f['empId'].invalid">
+                        <small class="text-danger" *ngIf="f['empId'].hasError('required')">
+                            *This is Required Field...
+                        </small>
+                    </ng-container>
+                    <ng-container *ngIf="f['empId'].dirty && f['empId'].invalid">
+                        <small class="text-danger" *ngIf="f['empId'].hasError('empIdErrorMsg')">
+                            {{f['empId'].errors?.['empIdErrorMsg']}}
+
+                        </small>
+                    </ng-container>
+
+                </div>
+                <div class="form-group">Gender :
+                    <ng-container *ngFor="let g of genderArray">
+                        <label class="mx-1" [for]="g">{{ g }}</label>
+                        <input type="radio" name="gender" [id]="g" [value]="g" formControlName="gender">
+                    </ng-container>
+                </div>
+                <div class="form-group">
+                    <label for="check" class="mr-2">Check</label>
+                    <input type="checkbox" name="check" id="check" formControlName="check">                 
+                </div>
+                <div permanentAddess="permanentAddess">
+                    <p>Permanent Address</p>
+                    <div formGroupName="permanentAddess">
+                        <div class="form-group">
+                            <label for="Select country">Select country</label>
+                            <select name="" id="" class="form-control" formControlName="country" >
+                                <option value="Select country">Select country</option>
+                                <option  [value]="c" *ngFor="let c of countrieArray" [ngValue]="c.Country">{{c.Country}}</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="state">State</label>
+                            <input type="text" name="state" id="state" class="form-control" formControlName="state">
+                            <!-- <ng-container *ngIf="f['state'].touched && f['state'].invalid" >
+                                <small class="text-danger" *ngIf="f['state'].hasError('required')">
+                                    *This is Required field...
+                                </small>
+                            </ng-container> -->
+                        </div>
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" name="city" id="city" class="form-control" formControlName="city">
+                            <!-- <ng-container *ngIf="f['city'].touched && f['city'].invalid">
+                                <small class="text-danger">
+                                    *This is Required field...
+                                </small>
+                            </ng-container> -->
+                        </div>
+                        <div class="form-group">
+                            <label for="pincode">Pincode</label>
+                            <input type="number" name="pincode" id="pincode" class="form-control" formControlName="pincode">
+                            <!-- <ng-container *ngIf="f['pincode'].touched && f['pincode'].invalid">
+                                <small class="text-danger">
+                                    *This is Required field...
+                                </small>
+                            </ng-container> -->
+                        </div>
+        
+                      </div>
+                </div>
+           
+              <div class="form-group">
+                <label for="">Same As permanet Address</label>
+                <input type="checkbox" name="" id="" formControlName="isPermanentSameAsCurrent" >
+              </div>
+              <div currentAddess="currentAddess">
+                <p>current Address</p>
+                <div formGroupName="currentAddess">
+                    <div class="form-group">
+                        <label for="Select country">Select country</label>
+                        <select name="" id="" class="form-control" formControlName="country" >
+                            <option  [value]="c" *ngFor="let c of countrieArray" [ngValue]="c.Country">{{c.Country}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State</label>
+                        <input type="text" name="state" id="state" class="form-control" formControlName="state">
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" name="city" id="city" class="form-control" formControlName="city">
+                    </div>
+                    <div class="form-group">
+                        <label for="pincode">Pincode</label>
+                        <input type="number" name="pincode" id="pincode" class="form-control" formControlName="pincode">
+                    </div>
+    
+                  </div>
+              </div>
+
+              <div class="form-group">
+                <label for="pass">Password</label>
+                <input type="text" name="pass" id="pass" formControlName="pass" class="form-control">
+                <ng-container *ngIf="f['pass'].touched && f['pass'].invalid">
+                    <small class="text-danger" *ngIf="f['pass'].hasError('required')">
+                        *This is Required field...
+                    </small>
+                </ng-container>
+                <ng-container *ngIf="f['pass'].dirty && f['pass'].invalid">
+                    <small class="text-danger" *ngIf="f['pass'].hasError('pattern')">
+                        *Please Match Password Pattern...
+                    </small>
+                </ng-container>
+              </div>
+              <div class="form-group">
+                <label for="confirmPass">confirm Password</label>
+                <input type="text" name="confirmPass" id="confirmPass" formControlName="confirmPass" class="form-control">
+                <ng-container *ngIf="f['confirmPass'].touched && f['confirmPass'].invalid">
+                    <small class="text-danger" *ngIf="f['confirmPass'].hasError('required')">
+                        *This is Required field...
+                    </small>
+                </ng-container>
+                <!-- <ng-container *ngIf="f['confirmPass'].dirty && f['confirmPass'].invalid">
+                    <small class="text-danger" *ngIf="f['confirmPass'].hasError('passErrMSg')">
+                        {{f['confirmPass'].errors?.['passErrMSg']}}
+                    </small>  
+                </ng-container> -->
+                <small>
+                  
+                    {{reactForm.errors | json}}
+                </small>
+              </div>
+           
+                <div class="btns">
+                    <button class="btn btn-warning" type="reset">Reset</button>
+                    <button class="btn btn-primary" type="submit"
+                    [disabled]="!reactForm.valid"
+                    >Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

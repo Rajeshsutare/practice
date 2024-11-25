@@ -1,0 +1,50 @@
+
+
+<div class="container d-flex justify-content-between">
+<div class="col-md-5">
+    <form action="" [formGroup]="userForm" (ngSubmit)="userFormSubmit()">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="name"  formControlName="name">
+        </div>
+        <div class="form-group">
+            <label for="emailcontact">Email</label>
+            <input type="email" class="form-control" id="emailcontact" name="emailcontact" formControlName="email">
+        </div>
+        <div class="form-group">
+            <label for="contact">Contact</label>
+            <input type="Number" class="form-control" id="contact" name="contact" formControlName="contact">
+        </div>
+        <div class="btns d-flex justify-content-between">
+            <button class="btn btn-warning" type="reset">Reset</button>
+            <button class="btn btn-primary" type="submit" *ngIf="!updateBtnVisible">Submit</button>
+            <button class="btn btn-success" type="submit" *ngIf="updateBtnVisible">Update</button>
+        </div>
+    </form>
+</div>
+<div class="col-md-7">
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Sr No</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Contact</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of usersArray;index as i" [id]="user.id">
+            <td>{{i+1}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.contact}}</td>
+            <td class="d-flex justify-content-between">
+                <button class="btn btn-primary" type="button"(click)="onEditUser(user.id)">Edit</button>
+                <button class="btn btn-danger" type="button" (click)="onDeleteUser(user.id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</div>
